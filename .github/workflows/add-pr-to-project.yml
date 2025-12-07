@@ -1,0 +1,15 @@
+name: Add new Pull Request to Project
+
+on:
+  pull_request:
+    types: [opened] # Trigger when a new Pull Request is opened
+
+jobs:
+  add-pr-to-project-job: # Уникаємо дублювання назв
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add PR to Project
+        uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/users/WonderfulPie/projects/2
+          github-token: ${{ secrets.PAT_TOKEN }}
